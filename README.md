@@ -17,12 +17,14 @@
 3.  使用现有开源api代理，则只需在custom.js文件86行加入自己的 openai 的api key即可，然后使用gitee pages或者 github pages部署就行！不建议在custom.js文件中填写apiKey，容易泄露！建议直接部署后在首页填入自己的apiKey使用!
 
 #### 注意
+
 1.  拒绝白嫖，如果此小项目帮助到了您，希望能得到您的star!
 2.  项目开源代理：[https://github.com/geekr-dev/openai-proxy](https://github.com/geekr-dev/openai-proxy) 点个 Star 支持作者
 3.  此项目适合小白，主打简洁，可不断完善！
 4.  对于项目如有疑问，可点击项目页面“@联系我”，在我的博客中私信！
 5.  此项目为紧急搭建，会不断完善页面效果！
+6.  体验地址：我用的是github pages->: [https://aniuyyds.github.io/ChatGPT-website/](https://aniuyyds.github.io/ChatGPT-website/)
 
 #### 项目效果
 
-![输入图片说明](%E9%A1%B9%E7%9B%AE%E7%A4%BA%E4%BE%8B%E5%9B%BE%E7%89%87.png)
+![输入图片说明](示例图.png)
