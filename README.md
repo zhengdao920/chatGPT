@@ -24,7 +24,7 @@
 4.  对于项目如有疑问，可点击项目页面“@联系我”，在我的博客中私信！
 5.  此项目为紧急搭建，会不断完善页面效果！
 6.  体验地址：我用的是github pages->: [https://aniuyyds.github.io/ChatGPT-website/](https://aniuyyds.github.io/ChatGPT-website/)
-
+7.  项目后端版本：https://gitee.com/aniu-666/chat-gpt-website/tree/master/
 #### 项目效果
 
 ![输入图片说明](示例图.png)
