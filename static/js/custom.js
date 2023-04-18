@@ -64,7 +64,7 @@ $(document).ready(function() {
     if (imgName == "avatar.png"){
       escapedMessage= escapeHtml(message);  // 对请求message进行转义，防止html被浏览器渲染
     }else if(imgName == "chatgpt.png"){
-      escapedMessage= marked(message);  // 对响应message的markdown格式转换为html
+      escapedMessage= marked(message);  // 使用marked.js对响应message的markdown格式转换为html
     }
     var messageElement = $('<div class="row message-bubble"><img class="chat-icon" src="./static/images/' + imgName + '"><div class="message-text">' +  escapedMessage + '</div></div>');
     chatWindow.append(messageElement);
