@@ -133,7 +133,7 @@ $(document).ready(function() {
       if (done) {
         break;
       }
-      res = new TextDecoder().decode(value).replace(/data: /g, '').replace("[DONE]",'');
+      res = new TextDecoder().decode(value).replace(/^data: /gm, '').replace("[DONE]",'');
       const lines = res.trim().split(/[\n]+(?=\{)/);
       for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
