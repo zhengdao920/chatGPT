@@ -189,8 +189,9 @@ $(document).ready(function() {
           localStorage.setItem("session",JSON.stringify(messages));
         }
       }
+      // 添加复制
+      copy();
     });
-
   });  
 
   // Enter键盘事件
@@ -245,7 +246,7 @@ $(document).ready(function() {
   // apiKey
   const apiKey = localStorage.getItem('apiKey');
   if (apiKey) {
-     $(".settings-common .api-key").val(apiKey);
+    $(".settings-common .api-key").val(apiKey);
   }
 
   // apiKey输入框事件
@@ -275,15 +276,15 @@ $(document).ready(function() {
 
   $('#chck-1').click(function() {
     if ($(this).prop('checked')) {
-        // 开启状态的操作
-        localStorage.setItem('archiveSession', true);
-        if(messages.length != 0){
-          localStorage.setItem("session",JSON.stringify(messages));
-        }
+      // 开启状态的操作
+      localStorage.setItem('archiveSession', true);
+      if(messages.length != 0){
+        localStorage.setItem("session",JSON.stringify(messages));
+      }
     } else {
-        // 关闭状态的操作
-        localStorage.setItem('archiveSession', false);
-        localStorage.removeItem("session");
+      // 关闭状态的操作
+      localStorage.setItem('archiveSession', false);
+      localStorage.removeItem("session");
     }
   });
   
@@ -299,6 +300,8 @@ $(document).ready(function() {
           addResponseMessage(item.content)
         }
       });
+      // 添加复制
+      copy();
     }
   }
 
@@ -319,9 +322,9 @@ $(document).ready(function() {
 
   $('#chck-2').click(function() {
     if ($(this).prop('checked')) {
-        localStorage.setItem('continuousDialogue', true);
+      localStorage.setItem('continuousDialogue', true);
     } else {
-        localStorage.setItem('continuousDialogue', false);
+      localStorage.setItem('continuousDialogue', false);
     }
   });
 
@@ -363,15 +366,46 @@ $(document).ready(function() {
     });
   });
 
-  // // 禁用右键菜单
-  // document.addEventListener('contextmenu',function(e){
-  //   e.preventDefault();  // 阻止默认事件
-  // });
+  // 复制代码功能
+  function copy(){
+    $('pre').each(function() {
+      let btn = $('<button class="copy-btn">复制</button>');
+      $(this).append(btn);
+      btn.hide();
+    });
 
-  // // 禁止键盘F12键
-  // document.addEventListener('keydown',function(e){
-  //   if(e.key == 'F12'){
-  //       e.preventDefault(); // 如果按下键F12,阻止事件
-  //   }
-  // });
+    $('pre').hover(
+      function() {
+        $(this).find('.copy-btn').show();
+      },
+      function() {
+        $(this).find('.copy-btn').hide();
+      }
+    );
+  
+    $('pre').on('click', '.copy-btn', async function() {
+      let text = $(this).siblings('code').text();
+      try {
+        await navigator.clipboard.writeText(text);
+        $(this).text('复制成功');
+      } catch (e) {
+        $(this).text('复制失败');
+      }
+      setTimeout(() => {
+        $(this).text('复制');
+      }, 2000);
+    });
+  }
+
+  // 禁用右键菜单
+  document.addEventListener('contextmenu',function(e){
+    e.preventDefault();  // 阻止默认事件
+  });
+
+  // 禁止键盘F12键
+  document.addEventListener('keydown',function(e){
+    if(e.key == 'F12'){
+        e.preventDefault(); // 如果按下键F12,阻止事件
+    }
+  });
 });
