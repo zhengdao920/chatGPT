@@ -81,7 +81,7 @@ $(document).ready(function() {
     let resFlag = true;
    
     // 判断是否使用自己的api key
-    let apiKey = localStorage.getItem('apiKey');
+    let apiKey = localStorage.getItem('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');
     if (apiKey){
       data.apiKey = apiKey;
     }
